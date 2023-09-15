@@ -44,4 +44,4 @@ Thumbs.db
 karma.conf.js
 .vscode/
 tslint.json
-tsconfig.json
+//tsconfig.json
