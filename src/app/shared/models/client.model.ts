@@ -1,4 +1,7 @@
+import { PhoneModel } from "./phone.model";
+
 export interface ClientModel{
+    id?: Number;
     name: string;
     people: string;
     cpf?: string;
@@ -7,5 +10,5 @@ export interface ClientModel{
     ie?: string;
     dateRegister: Date;
     active: boolean;
-    phones: string[];
+    phone: PhoneModel[];
 }

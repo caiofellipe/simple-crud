@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ClientModel } from 'src/app/shared/models/client.model';
 import { RequestClientModel } from 'src/app/shared/models/requestClient.model';
+import { ResponseModel } from 'src/app/shared/models/response.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -28,8 +29,8 @@ export class ClientService {
       return this.http.put<ClientModel>(`${this.apiUrl}/client/`, client);
     }
 
-    disable(client: ClientModel): Observable<String>{
-      return this.http.put<String>(`${this.apiUrl}/client/disable`, client);
+    disableOrEnable(client: ClientModel): Observable<ResponseModel>{
+      return this.http.put<ResponseModel>(`${this.apiUrl}/client/disableorenable`, client);
     }
 
 

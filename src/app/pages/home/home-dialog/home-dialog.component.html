@@ -1,4 +1,4 @@
-<form [formGroup]="formRegisterClient">
+<form [formGroup]="formRegisterClient" (ngSubmit)="submit()">
     <div class="row">
         <div class="form-group">
             <mat-form-field appearance="outline" class="w-100">
@@ -6,8 +6,8 @@
                 <input matInput placeholder="Nome" formControlName="name">
             </mat-form-field>
         </div>
-        <div class="form-group">
-            <mat-radio-group aria-label="Selecione uma opção" (change)="selectPeople($event)">
+        <div class="form-group mb-3">
+            <mat-radio-group aria-label="Selecione uma opção" formControlName="people" (change)="selectPeople($event)">
                 <mat-radio-button class="p-2" value="pf">Pessoa Física</mat-radio-button>
                 <mat-radio-button class="p-2" value="pj">Pessoa Jurídica</mat-radio-button>
               </mat-radio-group>
@@ -15,11 +15,11 @@
         <div class="form-group">
             <mat-form-field appearance="outline" class="w-100" [hidden]="hiddenPeoplePf">
                 <mat-label>CPF</mat-label>
-                <input matInput placeholder="CPF" formControlName="cpf">
+                <input matInput placeholder="CPF" formControlName="cpf" mask="000.000.000-00">
             </mat-form-field>
             <mat-form-field appearance="outline" class="w-100" [hidden]="hiddenPeoplePj">
                 <mat-label>CNPJ</mat-label>
-                <input matInput placeholder="CNPJ" formControlName="cnpj">
+                <input matInput placeholder="CNPJ" formControlName="cnpj" mask="00.000.000/0000-00">
             </mat-form-field>
         </div>
         <div class="form-group">
@@ -29,14 +29,14 @@
             </mat-form-field>
             <mat-form-field appearance="outline" class="w-100" [hidden]="hiddenPeoplePj">
                 <mat-label>IE (Inscrição Estadual)</mat-label>
-                <input matInput placeholder="IE" formControlName="ie">
+                <input matInput placeholder="IE" formControlName="ie" mask="000.00000-00 || 000.000.000.000">
             </mat-form-field>
         </div>
-        <div formArrayName="phones" class="mt-2">
+        <div formArrayName="phone" class="mt-2">
             <div *ngFor="let p of phonesArray.controls; let i = index">
                 <div [formGroupName]="i" class="mb-3">
                     <div class="form-floating" [hidden]="hiddenPhone">
-                        <input type="text" class="form-control"  formControlName="phone" id="phone_{{i}}">
+                        <input type="text" class="form-control"  formControlName="phone" id="phone_{{i}}" mask="(00) 0000-0000||(00) 0 0000-0000">
                         <label for="phone_{{i}}">Telefone</label>
                     </div>
                 </div>
@@ -44,7 +44,8 @@
             <button type="button" class="btn btn-sm mt-3 btn-outline-secondary" [hidden]="hiddenPhone" (click)="newPhone()">Adicionar Telefone</button>
         </div>
         <div class="form-group d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-primary" *ngIf="client.id == undefined">Salvar</button>
+            <button type="button" class="btn btn-primary" (click)="update()" *ngIf="client.id != undefined">Atualizar</button>
         </div>
     </div>
 </form>
