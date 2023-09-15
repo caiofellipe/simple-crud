@@ -26,19 +26,39 @@
         <hr>
         <div class="row">
             <div class="demo-button-container">
-                <button (click)="openModalNewClient()" class="btn btn-outline-primary">
+                <button (click)="openModalNewClient()" class="btn btn-outline-primary m-1">
                   Novo Cliente
                 </button>
-                <button class="btn btn-outline-danger">
+                <button class="btn btn-outline-danger m-1">
                   Remover Cliente
                 </button>
               </div>
         </div>
-        <!--
-            h4 - resultado
-            table
-
-        -->
         
+        <div class="row mt-5 p-2">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 bg-dark">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="text-white"><b>Nome</b></th>
+                    <td mat-cell class="text-white" *matCellDef="let element"{{ element.name }}></td>
+                </ng-container>
+                <ng-container matColumnDef="people">
+                    <th mat-header-cell *matHeaderCellDef class="text-white"><b>Pessoa</b></th>
+                    <td mat-cell class="text-white" *matCellDef="let element"{{ element.people }}></td>
+                </ng-container>
+                <ng-container matColumnDef="dateRegister">
+                    <th mat-header-cell *matHeaderCellDef class="text-white"><b>Data Cadastro</b></th>
+                    <td mat-cell class="text-white" *matCellDef="let element"{{ element.dateRegister }}></td>
+                </ng-container>
+                <ng-container matColumnDef="active">
+                    <th mat-header-cell *matHeaderCellDef class="text-white"><b>Ativo</b></th>
+                    <td mat-cell class="text-white" *matCellDef="let element"{{ element.active }}></td>
+                </ng-container>
+              <!--  <ng-container matColumnDef="actions">
+                    <td mat-cell *matCellDef="let element" (click)="editClient(element)">Ação</td>
+                </ng-container>-->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
     </mat-card>
 </div>

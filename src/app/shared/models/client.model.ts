@@ -1,6 +1,6 @@
 export interface ClientModel{
     name: string;
-    type: string;
+    people: string;
     cpf?: string;
     cnpj?: string;
     rg?: string;

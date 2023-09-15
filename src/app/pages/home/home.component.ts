@@ -13,7 +13,9 @@ export class HomeComponent implements OnInit {
   checked: boolean = false;
   form!: FormGroup;
   clients: ClientModel[] = [];
-
+  dataSource: any;
+  displayedColumns: string[] = ['name', 'people', 'dateRegister', 'active'];
+  
   constructor(
     private fb: FormBuilder,
     private dialog: MatDialog,
@@ -36,6 +38,10 @@ export class HomeComponent implements OnInit {
 
   openModalNewClient(){
     return this.dialog.open(HomeDialogComponent);
+  }
+
+  editClient(element: any){
+    console.log(element);
   }
 
 }

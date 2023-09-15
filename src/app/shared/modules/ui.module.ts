@@ -6,6 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
     declarations: [],
@@ -17,7 +19,9 @@ import { MatDialogModule } from '@angular/material/dialog';
       MatFormFieldModule,
       MatInputModule,
       MatSlideToggleModule,
-      MatDialogModule
+      MatDialogModule,
+      MatRadioModule,
+      MatTableModule
     ],
     exports: [
       CommonModule,
@@ -27,7 +31,9 @@ import { MatDialogModule } from '@angular/material/dialog';
       MatFormFieldModule,
       MatInputModule,
       MatSlideToggleModule,
-      MatDialogModule
+      MatDialogModule,
+      MatRadioModule,
+      MatTableModule
     ],
   })
   export class UiModule { }
