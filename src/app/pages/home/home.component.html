@@ -1,0 +1,68 @@
+<div class="container container-card d-flex justify-content-center align-items-center">
+    <mat-card class="shadow bg-white card-custom w-90 p-4">
+        <mat-card-content>
+            <div class="card-header">
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                    <div class="row justify-content-center text-center">
+                        <div class="form-group col-12 col-md-5">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Nome</mat-label>
+                                <input matInput placeholder="Nome" formControlName="name">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group col-12 col-md-2">
+                            <h6 class="example-h2">Ativo</h6>
+                            <section class="example-section">
+                                <mat-slide-toggle class="example-margin" [checked]="checked" formControlName="active"></mat-slide-toggle>
+                            </section>
+                        </div>
+                        <div class="form-group col-12 col-md-2 align-self-center">
+                            <button type="submit" class="btn btn-primary">Pesquisar</button>            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </mat-card-content>
+        <hr>
+        <div class="row">
+            <div class="demo-button-container">
+                <button (click)="openModalNewClient()" class="btn btn-outline-primary m-1">
+                  Novo Cliente
+                </button>
+              </div>
+        </div>
+        
+        <div class="row mt-3 p-2" *ngIf="clients.length > 0">
+            <table class="table table-responsive mat-elevation-z8 table-secondary">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Pessoa</th>
+                        <th scope="col">Data Cadastro</th>
+                        <th scope="col">Ativo</th>
+                        <th scope="col">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let client of clients; let i = index;">
+                        <th>{{i}}</th>
+                        <th>{{client.name}}</th>
+                        <th>{{ changePeople(client.people)}}</th>
+                        <th>{{ changeDateRegister(client.dateRegister) }}</th>
+                        <th>    
+                            <mat-slide-toggle class="example-margin" [disabled]="true" [checked]="client.active"></mat-slide-toggle>
+                        </th>
+                        <th>
+                            <div class="btn-group">
+                                <a (click)="edit(client)" class="btn btn-outline-primary">Editar</a>
+                                <a (click)="disableOrEnable(client)" class="btn btn-outline-danger" *ngIf="client.active">Desativar</a>
+                                <a (click)="disableOrEnable(client)" class="btn btn-outline-primary" *ngIf="!client.active">Habilitar</a>
+                            </div>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </mat-card>
+</div>
