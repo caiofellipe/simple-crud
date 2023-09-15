@@ -8,6 +8,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
+import { NgxMaskModule } from 'ngx-mask';
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
     declarations: [],
@@ -15,6 +17,8 @@ import { MatTableModule } from '@angular/material/table';
       CommonModule,
       ReactiveFormsModule,
       FormsModule,
+      NgxMaskModule.forRoot(),
+      ToastrModule.forRoot(),
       MatCardModule,
       MatFormFieldModule,
       MatInputModule,
@@ -27,6 +31,8 @@ import { MatTableModule } from '@angular/material/table';
       CommonModule,
       ReactiveFormsModule,
       FormsModule,
+      NgxMaskModule,
+      ToastrModule,
       MatCardModule,
       MatFormFieldModule,
       MatInputModule,

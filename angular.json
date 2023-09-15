@@ -29,7 +29,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.bundle.js"
@@ -77,6 +78,9 @@
             "development": {
               "browserTarget": "simple-crud:build:development"
             }
+          },
+          "options": {
+            "proxyConfig": "proxy.conf.js"
           },
           "defaultConfiguration": "development"
         },

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { MatRadioChange } from '@angular/material/radio';
+import { ClientService } from 'src/app/core/services/client.service';
 import { ClientModel } from 'src/app/shared/models/client.model';
 
 @Component({
@@ -18,6 +19,7 @@ export class HomeDialogComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private clientService: ClientService,
   ) { }
 
   ngOnInit(): void {
