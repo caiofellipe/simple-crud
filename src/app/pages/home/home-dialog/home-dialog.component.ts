@@ -41,7 +41,7 @@ export class HomeDialogComponent implements OnInit {
       this.newPhone();
     }
 
-    if(client.id != undefined){
+    if(client != undefined){
 
       client.phone.forEach((p: PhoneModel) => {
         this.phonesArray.push(
@@ -63,9 +63,6 @@ export class HomeDialogComponent implements OnInit {
         this.hiddenPeoplePj = false;
         this.hiddenPhone = false;
       }
-
-
-
     }
   }
 
@@ -85,7 +82,6 @@ export class HomeDialogComponent implements OnInit {
   }
 
   selectPeople(valueChange: MatRadioChange){
-    console.log(valueChange);
     if(valueChange.value == "pf"){
       this.hiddenPeoplePj = true;
       this.hiddenPeoplePf = false;

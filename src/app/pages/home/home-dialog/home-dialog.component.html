@@ -44,8 +44,8 @@
             <button type="button" class="btn btn-sm mt-3 btn-outline-secondary" [hidden]="hiddenPhone" (click)="newPhone()">Adicionar Telefone</button>
         </div>
         <div class="form-group d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary" *ngIf="client.id == undefined">Salvar</button>
-            <button type="button" class="btn btn-primary" (click)="update()" *ngIf="client.id != undefined">Atualizar</button>
+            <button type="submit" class="btn btn-primary" *ngIf="client == undefined">Salvar</button>
+            <button type="button" class="btn btn-primary" (click)="update()" *ngIf="client != undefined">Atualizar</button>
         </div>
     </div>
 </form>
